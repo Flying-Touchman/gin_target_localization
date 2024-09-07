@@ -1,0 +1,14 @@
+{
+  "T_good": {
+      "height": 410,
+      "width":  410
+  },
+  "T_better": {
+      "height": 160,
+      "width":  160
+  },
+  "T_best": {
+      "height": 70,
+      "width":  70
+  }
+}

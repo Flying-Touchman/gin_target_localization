@@ -1,0 +1,19 @@
+<package format="2">
+  <name>gin</name>
+  <version>0.0.1</version>
+  <description>Geometry-Informed Neural Network Target Localization Package</description>
+
+  <maintainer email="andrea.berra@outlook.com"></maintainer>
+
+  <author>Andrea Berra</author>
+
+  <license>ASL 2.0</license>
+
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>rospy</depend>
+  <depend>std_msgs</depend>
+  <depend>geometry_msgs</depend>
+
+</package>

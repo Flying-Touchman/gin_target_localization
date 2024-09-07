@@ -1,0 +1,37 @@
+<launch>
+  <!-- params target detection -->
+  <!-- ************************************************************************************************************ -->
+  <param name="param_file_name" type="str" value="$(find gin)/weights/whill-frozen-tiny-oneclass_best_01_May.weights" />
+  <param name="config_file_name" type="str" value="$(find gin)/cfg/aero_target_single_layer.cfg" />
+  <param name="names_file_name" type="str" value="$(find gin)/data/aero_target.names" />
+  <param name="depth_topic_name" type="str" value="/d400/depth/image_rect_raw" />
+  <param name="info_topic_name" type="str"  value="/d400/color/camera_info" />
+  <param name="color_topic_name" type="str" value="/d400/color/image_raw" />
+
+  <!-- default camera params -->
+  <param name="default_camera_param_file" type="str" value="$(find gin)/cfg/default_camera_info_params.json" />
+  <!-- box width and height  -->
+  <param name="box_param_file" type="str" value="$(find gin)/cfg/box_sizes.json" />
+  <!-- method to compute target pose (pnp or camera_proj)  -->
+  <param name="method" type="str" value="camera_proj"/>
+  <!-- publish rate target pose and target detection [Hz] -->
+  <param name="pub_rate" type="double" value="30"/>
+  <!-- publish rate target with detection image [Hz] -->
+  <param name="pub_rate_image" type="double" value="1"/>
+  <!-- method of detection (single_layer or multiple_layer) -->
+  <param name="detection_method" type="str" value="single_layer"/>
+
+  <!-- aerotrain camera detection tf -->
+  <node pkg="tf2_ros" type="static_transform_publisher" name="base_link_camera_detection_link"
+        args="0 0 0.1 -1.5708 0 -1.5708 aerotrain/aerotrain camera_detection_link" /> 
+        
+  <!-- taget detection node -->
+  <!-- ************************************************************************************************************ -->
+  <node name="target_loc" pkg="gin" type="target-loc.py" output="screen"/>
+
+  <!-- depth distance computation ndoe -->
+  <!-- ************************************************************************************************************ -->
+  <node name="target_depth_distance" pkg="gin" type="target-distance-depth.py" output="screen"/>
+
+</launch>
+

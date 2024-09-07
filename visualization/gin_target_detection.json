@@ -1,0 +1,149 @@
+{
+  "configById": {
+    "Plot!2ok0wup": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/target/pose.pose.position.z",
+          "enabled": true,
+          "color": "#4e98e2"
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": false,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "followingViewWidth": 5
+    },
+    "Plot!2abpbet": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/target/pose.pose.position.y",
+          "enabled": true,
+          "color": "#e34f4f"
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": false,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "followingViewWidth": 5
+    },
+    "Plot!2f9wkv5": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/target/pose.pose.position.x",
+          "enabled": true,
+          "color": "#4fe399"
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": false,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "followingViewWidth": 5
+    },
+    "Image!j5iq7e": {
+      "cameraState": {
+        "distance": 20,
+        "perspective": true,
+        "phi": 60,
+        "target": [
+          0,
+          0,
+          0
+        ],
+        "targetOffset": [
+          0,
+          0,
+          0
+        ],
+        "targetOrientation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "thetaOffset": 45,
+        "fovy": 45,
+        "near": 0.5,
+        "far": 5000
+      },
+      "followMode": "follow-pose",
+      "scene": {},
+      "transforms": {},
+      "topics": {},
+      "layers": {},
+      "publish": {
+        "type": "point",
+        "poseTopic": "/move_base_simple/goal",
+        "pointTopic": "/clicked_point",
+        "poseEstimateTopic": "/initialpose",
+        "poseEstimateXDeviation": 0.5,
+        "poseEstimateYDeviation": 0.5,
+        "poseEstimateThetaDeviation": 0.26179939
+      },
+      "imageMode": {
+        "imageTopic": "/target/image_with_detection"
+      }
+    },
+    "Plot!42act9c": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/target/detection.data",
+          "enabled": true,
+          "color": "#e3c14f"
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": false,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "followingViewWidth": 5
+    }
+  },
+  "globalVariables": {
+    "": "\"\""
+  },
+  "userNodes": {},
+  "playbackConfig": {
+    "speed": 1
+  },
+  "layout": {
+    "direction": "row",
+    "first": {
+      "first": {
+        "first": "Plot!2ok0wup",
+        "second": "Plot!2abpbet",
+        "direction": "column"
+      },
+      "second": "Plot!2f9wkv5",
+      "direction": "column",
+      "splitPercentage": 64.3141153081511
+    },
+    "second": {
+      "first": "Image!j5iq7e",
+      "second": "Plot!42act9c",
+      "direction": "column"
+    }
+  }
+}

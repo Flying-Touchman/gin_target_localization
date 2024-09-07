@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gin-deployment
+  labels:
+    app: gin
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gin
+  template:
+    metadata:
+      labels:
+        app: gin
+    spec:
+      hostNetwork: true
+      containers:
+        - name: fin_cnt
+          image: gin:latest
+          imagePullPolicy: Never
+          env:
+            - name: ROS_HOSTNAME
+              value: listener-v2
+            - name: ROS_MASTER_URI
+              value: http://master:11311
+          args:
+            - rostopic
+            - echo
+            - /rosout
